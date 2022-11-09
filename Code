@@ -1,0 +1,49 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class JincrementDecrement {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Increment Decrement GUI");
+        JLabel label1 = new JLabel("50");
+        JLabel label2 = new JLabel("The Numeric Value: ");
+        JButton bt1 = new JButton("INCREMENT");
+        JButton bt2 = new JButton("DECREMENT");
+
+        frame.setLayout(new GridLayout(2,1));
+        JTextArea txt = new JTextArea();
+        frame.add(label2);
+        frame.add(label1);
+        frame.add(bt1);
+        frame.add(bt2);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        bt1.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed (ActionEvent e){
+
+                String Input = label1.getText();
+                int count = Integer.parseInt(Input);
+                count++;
+                JOptionPane.showMessageDialog(frame,count , "After Increment", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        });
+        bt2.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed (ActionEvent e){
+
+                String Input = label1.getText();
+                int count = Integer.parseInt(Input);
+                count--;
+                JOptionPane.showMessageDialog(frame,count , "After Decrement", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        });
+
+    }
+}
